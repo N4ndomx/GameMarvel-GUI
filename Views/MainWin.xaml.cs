@@ -29,9 +29,10 @@ namespace ControllersKinect.Views
 
         private void KinectTileButton_Click(object sender, RoutedEventArgs e)
         {
-            Preguntas win= new Preguntas();
+            Preguntas win= new Preguntas(this.sensorChooser);
             win.Show();
             this.Close();
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -87,6 +88,8 @@ namespace ControllersKinect.Views
 
         private void KinectTileButton_Click_1(object sender, RoutedEventArgs e)
         {
+            sensorChooser.Stop();
+
             this.Close();
         }
     }

@@ -24,17 +24,22 @@ namespace ControllersKinect
     public partial class Preguntas : Window
     {
         KinectSensorChooser sensorChooser;
-        public Preguntas()
+        public Preguntas(KinectSensorChooser sesor )
         {
             InitializeComponent();
+            sensorChooser = sesor;
+            
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            sensorChooser = new KinectSensorChooser();
+
             sensorChooser.KinectChanged += SensorChooser_KinectChanged;
             kinectSensorUI.KinectSensorChooser = sensorChooser;
+            sensorChooser.Stop();
             sensorChooser.Start();
+
         }
 
         private void SensorChooser_KinectChanged(object sender, KinectChangedEventArgs e)
