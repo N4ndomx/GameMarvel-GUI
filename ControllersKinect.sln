@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33529.622
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllersKinect", "ControllersKinect.csproj", "{F42D4DB3-8C0C-4093-9AF8-CA97CB143752}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F42D4DB3-8C0C-4093-9AF8-CA97CB143752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42D4DB3-8C0C-4093-9AF8-CA97CB143752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42D4DB3-8C0C-4093-9AF8-CA97CB143752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42D4DB3-8C0C-4093-9AF8-CA97CB143752}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85A7C321-8C6D-4942-A656-E329BB3401A1}
+	EndGlobalSection
+EndGlobal
