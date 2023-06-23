@@ -166,14 +166,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\doc.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="img\71rHyBh21ZL.jpg" />
     <Resource Include="img\pngtree-the-marvel-comics-display-has-been-assembled-by-the-museum-picture-image_2684277.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\606422.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\bg1.jpg" />
