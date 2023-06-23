@@ -8,15 +8,15 @@
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
         Title="Game" Height="450" Width="800" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Window.Background>
-        <ImageBrush ImageSource="/ControllersKinect;component/img/71rHyBh21ZL.jpg"/>
+        <ImageBrush ImageSource="/ControllersKinect;component/img/bg1.jpg"/>
     </Window.Background>
     <Grid>
 
         <k:KinectRegion Name="regionKt">
             <Grid>
                 <k:KinectUserViewer DefaultUserColor="Gray" PrimaryUserColor="Green" Margin="643,0,0,306" />
-                <k:KinectTileButton  Label="SI" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="141,210,426,34" Height="175" Width="225" FontFamily="Segoe UI Black" Background="#FFB81515" Content="" LabelBackground="#E60A0A0A" Foreground="White" Click="Click_SI"/>
-                <k:KinectTileButton  Label="NO" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="436,211,133,35" Height="175" Width="225" FontFamily="Segoe UI Black" Background="#FFB81515" Content="" LabelBackground="#E60A0A0A" Foreground="White" Click="Click_NO"/>
+                <k:KinectTileButton  Label="SI" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="141,210,426,34" Height="175" Width="225" FontFamily="Segoe UI Black" Background="#FFD4D9DE" Content="" LabelBackground="#E60A0A0A" Foreground="White" Click="Click_SI"/>
+                <k:KinectTileButton  Label="NO" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="436,211,133,35" Height="175" Width="225" FontFamily="Segoe UI Black" Background="#FFD4D9DE" Content="" LabelBackground="#E60A0A0A" Foreground="White" Click="Click_NO"/>
             </Grid>
         </k:KinectRegion>
         <k:KinectSensorChooserUI Name="kinectSensorUI"  HorizontalAlignment="Center" VerticalAlignment="Top" ></k:KinectSensorChooserUI>

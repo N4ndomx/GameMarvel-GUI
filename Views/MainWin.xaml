@@ -8,7 +8,7 @@
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
         Title="Game" Height="450" Width="800"  ResizeMode="NoResize" Loaded="Window_Loaded">
     <Window.Background>
-        <ImageBrush ImageSource="/ControllersKinect;component/img/pngtree-the-marvel-comics-display-has-been-assembled-by-the-museum-picture-image_2684277.jpg"/>
+        <ImageBrush ImageSource="/ControllersKinect;component/img/bg1.jpg"/>
     </Window.Background>
 
     <Grid>
@@ -17,17 +17,17 @@
 
             <Grid>
                 <k:KinectUserViewer DefaultUserColor="Gray" PrimaryUserColor="Green" Margin="643,0,0,306" />
-                <k:KinectTileButton  Label="Jugar" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="116,197,388,73" Click="KinectTileButton_Click" Height="151" Width="290" FontFamily="Segoe UI Black" Background="#FFB81515" Content="" LabelBackground="#E60A0A0A" Foreground="White"/>
-                <k:KinectTileButton  Label="Salir" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="440,197,64,73"  Height="151" Width="290" FontFamily="Segoe UI Black" Background="#FFB81515" Content="" LabelBackground="#E60A0A0A" Foreground="White" Click="KinectTileButton_Click_1"/>
+                <k:KinectTileButton  Label="Jugar" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="116,176,388,73" Click="KinectTileButton_Click" Height="172" Width="290" FontFamily="Segoe UI Black" Background="#FFD4D9DE" Content="" LabelBackground="#E60A0A0A" Foreground="White"/>
+                <k:KinectTileButton  Label="Salir" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="440,176,64,73"  Height="172" Width="290" FontFamily="Segoe UI Black" Background="#FFD4D9DE" Content="" LabelBackground="#E60A0A0A" Foreground="White" Click="KinectTileButton_Click_1"/>
             </Grid>
         </k:KinectRegion>
         <k:KinectSensorChooserUI Name="kinectSensorUI"  HorizontalAlignment="Center" VerticalAlignment="Top" ></k:KinectSensorChooserUI>
         <Label Name="lbPregunta" Content="Marvel Character Guesser" HorizontalAlignment="Left" Margin="138,81,0,0" VerticalAlignment="Top" Height="64" Width="587" FontSize="36" FontFamily="Copperplate Gothic Bold" FontWeight="Bold">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0.884"/>
-                    <GradientStop Color="White" Offset="0.869"/>
-                    <GradientStop Color="#FF0F0F0F" Offset="1"/>
+                    <GradientStop Color="Black" Offset="0.95"/>
+                    <GradientStop Color="White" Offset="0.927"/>
+                    <GradientStop Color="Black" Offset="1"/>
                 </LinearGradientBrush>
             </Label.Foreground>
             <Label.Background>
