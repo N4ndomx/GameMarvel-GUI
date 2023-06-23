@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ControllersKinect.service;
 
 namespace ControllersKinect.Views
 {
@@ -25,6 +26,7 @@ namespace ControllersKinect.Views
         public MainWin()
         {
             InitializeComponent();
+
         }
 
         private void KinectTileButton_Click(object sender, RoutedEventArgs e)

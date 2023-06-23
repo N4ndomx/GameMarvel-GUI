@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ControllersKinect.service;
+using ControllersKinect.Views;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
@@ -24,12 +27,23 @@ namespace ControllersKinect
     public partial class Preguntas : Window
     {
         KinectSensorChooser sensorChooser;
-        public Preguntas(KinectSensorChooser sesor )
+        
+        private string question;
+        private string characteristic;
+        List<String> characteristic_yes = new List<String>();
+        List<String> characteristic_no = new List<String>();
+        
+        public Preguntas(KinectSensorChooser sesor)
         {
             InitializeComponent();
             sensorChooser = sesor;
-            
-
+            CaracteristicaAleatoria();
+        }
+        public void pregunta(string characteristic)
+        {
+            question = "Es " + characteristic.Replace("_", " ") + "?";
+            Console.WriteLine(question);
+            lbPregunta.Content = question;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -70,7 +84,8 @@ namespace ControllersKinect
                     e.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
                     e.NewSensor.DepthStream.Range = DepthRange.Near;
                     e.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
-                }catch(InvalidOperationException)
+                }
+                catch (InvalidOperationException)
                 {
                     e.NewSensor.DepthStream.Range = DepthRange.Default;
                     e.NewSensor.SkeletonStream.EnableTrackingInNearRange = false;
@@ -83,9 +98,76 @@ namespace ControllersKinect
             regionKt.KinectSensor = e.NewSensor;
         }
 
-        private void KinectTileButton_Click(object sender, RoutedEventArgs e)
+        async void CaracteristicaAleatoria()
         {
-            MessageBox.Show("hola");
+            try
+            {
+                characteristic = await ApiConec.getCharacterApi();
+                pregunta(characteristic);
+               
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrió un error: " + ex.Message);
+            }
+        }
+        async void PostData()
+        {
+            try
+            {
+                string list_yes = string.Join(", ", characteristic_yes);
+                string list_no = string.Join(", ", characteristic_no);
+
+                // Objeto JSON que deseas enviar en la solicitud POST
+                var data = new { buscar = list_yes, arrayNo = list_no };
+
+                // Realizar la solicitud POST y obtener la respuesta
+                string response = await ApiConec.PostJson(data);
+
+                // Hacer algo con la respuesta
+                Console.WriteLine(response);
+
+                if (!response.Contains("{") && !response.Contains("}"))
+                {
+                    string n = Regex.Replace(response, "(?<!_)\"", string.Empty);
+                    pregunta(n);
+                    characteristic = n;
+                     
+                }
+                else
+                {
+                    pregunta("YAAA");
+                    Resultado r = new Resultado(response);
+                    r.Show();
+                    this.Close();
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrió un error: " + ex.Message);
+            }
+        }
+
+        private void Click_SI(object sender, RoutedEventArgs e)
+        {
+            characteristic_no.Add(characteristic);
+            characteristic_yes.Add(characteristic);
+            PostData();
+            
+
+        }
+
+        private void Click_NO(object sender, RoutedEventArgs e)
+        {
+            question = "";
+            characteristic_no.Add(characteristic);
+            //CaracteristicaAleatoria();
+            PostData();
+           // characteristic_yes.Add(characteristic);
+
         }
     }
 }

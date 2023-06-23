@@ -13,14 +13,17 @@
     <Grid>
 
         <k:KinectRegion Name="regionKt">
+
             <Grid>
-                <Image HorizontalAlignment="Left" Height="296" Margin="45,60,0,0" VerticalAlignment="Top" Width="335"/>
+                <Image Name="imgPersonaje" HorizontalAlignment="Left" Height="296" Margin="125,10,0,0" VerticalAlignment="Top" Width="253"
+                        />
                 <k:KinectUserViewer DefaultUserColor="Gray" PrimaryUserColor="Green" Margin="643,0,0,306" />
-                <k:KinectTileButton  Label="SI" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="411,225,214,43" Click="KinectTileButton_Click" Height="153" Width="169" FontFamily="Segoe UI Black" Background="#FFB81515" Content="" LabelBackground="#E60A0A0A" Foreground="White"/>
-                <k:KinectTileButton  Label="NO" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="615,225,15,43" Click="KinectTileButton_Click" Height="153" Width="164" FontFamily="Segoe UI Black" Background="#FFB81515" Content="" LabelBackground="#E60A0A0A" Foreground="White"/>
-                <Label Name="lbPregunta" Content="Adivine ?" HorizontalAlignment="Left" Margin="468,95,0,0" VerticalAlignment="Top" Height="96" Width="282" Foreground="White" FontSize="48" FontWeight="Bold"/>
+                <k:KinectTileButton  Label="Jugar de nuevo" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="471,237,56,31" Click="KinectTileButton_Click" Height="153" Width="267" FontFamily="Segoe UI Black" Background="#FFB81515" Content="" LabelBackground="#E60A0A0A" Foreground="White"/>
             </Grid>
         </k:KinectRegion>
         <k:KinectSensorChooserUI Name="kinectSensorUI"  HorizontalAlignment="Center" VerticalAlignment="Top" ></k:KinectSensorChooserUI>
+        <TextBlock Name="txtDatos" HorizontalAlignment="Left" Margin="471,27,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="192" Width="261" Foreground="Black" FontWeight="Bold" FontSize="16"/>
+        <Label Name="lblnombre" Content="Label" HorizontalAlignment="Left" Margin="136,337,0,0" Width="224" Height="74" Foreground="Black" FontWeight="ExtraBold" FontSize="24" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

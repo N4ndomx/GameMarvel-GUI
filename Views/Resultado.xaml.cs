@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect;
+using ControllersKinect.modelos;
+using Newtonsoft.Json;
 
 namespace ControllersKinect.Views
 {
@@ -22,9 +24,21 @@ namespace ControllersKinect.Views
     public partial class Resultado : Window
     {
         KinectSensorChooser sensorChooser;
-        public Resultado()
+        BitmapImage imagen; Personaje respuestaObj;
+        public Resultado(string data )
         {
+
             InitializeComponent();
+            respuestaObj = JsonConvert.DeserializeObject<Personaje>(data); // Deserializar el JSON
+            asignarDatos();
+           
+        }
+        public void asignarDatos()
+        {
+            imagen = new BitmapImage(new Uri(respuestaObj.url_personaje));
+            imgPersonaje.Source = imagen;
+            txtDatos.Text = respuestaObj.descripcion_personaje;
+            lblnombre.Content = respuestaObj.nombre_personaje.Replace("_", " ").ToUpper();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -80,7 +94,9 @@ namespace ControllersKinect.Views
 
         private void KinectTileButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWin n = new MainWin();
+            n.Show();
+            this.Close();
         }
     }
 }
